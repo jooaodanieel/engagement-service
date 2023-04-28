@@ -21,8 +21,8 @@ public class Consumer {
     private PostSyncService postSyncService;
 
     @KafkaListener(
-            topics = { "messages" },
-            groupId = "test_consumer"
+            topics = "${it.unibz.archlab.digidojo.engagement.kafka.consumer.topics.messages}",
+            groupId = "${it.unibz.archlab.digidojo.engagement.kafka.consumer.group_id}"
     )
     public void consume(String jsonMessage) {
         System.out.println("Received:" + jsonMessage);
